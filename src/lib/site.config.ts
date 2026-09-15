@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Perfect Dry Cleaners",
   shortName: "Perfect",
-  tagline: "Quiet luxury care on Abbey Road.",
+  tagline: "Quiet luxury on Abbey Road.",
   description:
     "Premium dry cleaning, shirt service, household, bridal and leather care on Abbey Road, St John's Wood. Same-day when possible. Collection & delivery on request.",
   phoneDisplay: "020 7624 3420",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/site.config";
 
 const links = [
@@ -12,12 +12,28 @@ const links = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const solid = scrolled || open;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-blush/60 bg-pearl/95 backdrop-blur-md">
+    <header
+      className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
+        solid
+          ? "border-b border-gold/25 bg-charcoal/95 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <a href="#top" className="focus-ring group rounded-sm">
-          <span className="font-display text-xl tracking-tight text-charcoal sm:text-2xl">
+          <span className="font-display text-xl tracking-tight text-pearl sm:text-2xl">
             {siteConfig.shortName}
           </span>
           <span className="ml-2 hidden text-[11px] uppercase tracking-[0.18em] text-gold sm:inline">
@@ -30,16 +46,16 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="focus-ring rounded-sm text-sm text-charcoal/80 transition hover:text-charcoal"
+              className="focus-ring rounded-sm text-sm text-pearl/80 transition hover:text-gold"
             >
               {l.label}
             </a>
           ))}
           <a
             href={siteConfig.phoneHref}
-            className="focus-ring inline-flex items-center gap-2 rounded-full bg-charcoal px-4 py-2 text-sm font-medium text-pearl transition hover:bg-charcoal-deep"
+            className="focus-ring inline-flex items-center gap-2 rounded-full bg-gold px-4 py-2 text-sm font-semibold text-charcoal-deep transition hover:bg-pearl"
           >
-            <PhoneIcon className="h-4 w-4 text-gold" />
+            <PhoneIcon className="h-4 w-4" />
             Call
           </a>
         </nav>
@@ -47,22 +63,31 @@ export function Nav() {
         <div className="flex items-center gap-2 md:hidden">
           <a
             href={siteConfig.phoneHref}
-            className="focus-ring inline-flex items-center gap-1.5 rounded-full bg-charcoal px-3 py-2 text-xs font-medium text-pearl"
+            className="focus-ring inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-2 text-xs font-semibold text-charcoal-deep"
             aria-label={`Call ${siteConfig.phoneDisplay}`}
           >
-            <PhoneIcon className="h-3.5 w-3.5 text-gold" />
+            <PhoneIcon className="h-3.5 w-3.5" />
             Call
           </a>
           <button
             type="button"
-            className="focus-ring rounded-sm p-2 text-charcoal"
+            className="focus-ring rounded-sm p-2 text-pearl"
             aria-expanded={open}
             aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
           >
             <span className="sr-only">Menu</span>
-            <span className="block h-0.5 w-5 bg-charcoal" />
-            <span className="mt-1.5 block h-0.5 w-5 bg-charcoal" />
+            {open ? (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            ) : (
+              <>
+                <span className="block h-0.5 w-5 bg-pearl" />
+                <span className="mt-1.5 block h-0.5 w-5 bg-pearl" />
+              </>
+            )}
           </button>
         </div>
       </div>
@@ -70,14 +95,14 @@ export function Nav() {
       {open && (
         <div
           id="mobile-nav"
-          className="border-t border-blush/60 bg-pearl px-4 py-4 md:hidden"
+          className="border-t border-gold/20 bg-charcoal px-4 py-4 md:hidden"
         >
           <div className="flex flex-col gap-3">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="focus-ring rounded-sm py-1 text-sm"
+                className="focus-ring rounded-sm py-1 text-sm text-pearl"
                 onClick={() => setOpen(false)}
               >
                 {l.label}

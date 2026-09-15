@@ -8,100 +8,150 @@ export function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="top" className="relative overflow-hidden bg-charcoal">
-      <div className="grid min-h-[78vh] lg:grid-cols-2 lg:min-h-[88vh]">
-        {/* Image panel */}
-        <div className="relative order-1 min-h-[42vh] lg:order-2 lg:min-h-full">
-          <motion.img
-            src={withBase("/assets/hero.jpg")}
-            alt="Perfect Dry Cleaners storefront on Abbey Road"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            initial={reduce ? false : { scale: 1.06, opacity: 0.85 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-charcoal/55 via-charcoal/10 to-transparent lg:bg-gradient-to-l lg:from-transparent lg:via-charcoal/20 lg:to-charcoal/50"
-            aria-hidden
-          />
-          <div className="absolute bottom-5 left-5 right-5 hidden sm:flex lg:bottom-8 lg:left-8 items-center gap-3">
-            <span className="rounded-full bg-pearl/95 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-charcoal">
-              Google {siteConfig.google.ratingLabel} · {siteConfig.google.reviewCount} reviews
-            </span>
-          </div>
-        </div>
+    <section
+      id="top"
+      className="relative flex min-h-[100svh] min-h-screen flex-col justify-end overflow-hidden bg-charcoal-deep"
+    >
+      {/* Full-bleed storefront */}
+      <motion.img
+        src={withBase("/assets/hero.jpg")}
+        alt="Perfect Dry Cleaners storefront on Abbey Road"
+        className="absolute inset-0 h-full w-full object-cover object-[center_40%]"
+        initial={reduce ? false : { scale: 1.1, opacity: 0.7 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        fetchPriority="high"
+      />
 
-        {/* Copy panel */}
-        <div className="relative order-2 flex flex-col justify-center bg-pearl px-5 py-14 sm:px-8 sm:py-20 lg:order-1 lg:px-12 xl:px-16">
-          <div className="pointer-events-none absolute inset-y-10 right-0 hidden w-px bg-gradient-to-b from-transparent via-gold/70 to-transparent lg:block" aria-hidden />
+      {/* Dark / pearl quiet-luxury overlay */}
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-charcoal-deep via-charcoal/80 to-charcoal/40"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-charcoal-deep/85 via-charcoal/45 to-transparent"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 shadow-[inset_0_0_140px_50px_rgba(18,18,18,0.55)]"
+        aria-hidden
+      />
+      {/* Soft pearl wash at top for nav readability */}
+      <div
+        className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-charcoal/50 to-transparent"
+        aria-hidden
+      />
 
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-5 text-[11px] uppercase tracking-[0.22em] text-gold"
+      {/* Content — image owns the frame */}
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col justify-end px-4 pb-20 pt-28 sm:px-6 sm:pb-24 lg:pb-28">
+        <motion.p
+          className="mb-4 text-[11px] font-medium uppercase tracking-[0.28em] text-gold"
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          animate={reduce ? undefined : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Abbey Road · St John&apos;s Wood · NW8
+        </motion.p>
+
+        <motion.h1
+          className="max-w-3xl font-display text-5xl leading-[1.05] tracking-tight text-pearl sm:text-6xl md:text-7xl lg:text-[5rem]"
+          initial={reduce ? false : { opacity: 0, y: 20 }}
+          animate={reduce ? undefined : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.08 }}
+        >
+          Quiet luxury on Abbey Road.
+        </motion.h1>
+
+        {/* Muted gold hairline */}
+        <motion.div
+          className="my-6 h-px w-28 origin-left bg-gradient-to-r from-gold via-gold to-transparent sm:w-40"
+          initial={reduce ? false : { scaleX: 0 }}
+          animate={reduce ? undefined : { scaleX: 1 }}
+          transition={{ duration: 0.85, delay: 0.25 }}
+          aria-hidden
+        />
+
+        <motion.p
+          className="max-w-lg text-base leading-relaxed text-pearl/80 sm:text-lg"
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          animate={reduce ? undefined : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Shirts, household, bridal, leather and same-day care — a neighbourhood
+          dry cleaners trusted on Abbey Road for years.
+        </motion.p>
+
+        <motion.div
+          className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          animate={reduce ? undefined : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <a
+            href={siteConfig.phoneHref}
+            className="focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-base font-semibold tracking-wide text-charcoal-deep shadow-[0_8px_32px_rgba(168,146,90,0.35)] transition hover:bg-pearl sm:text-lg"
           >
-            Abbey Road · St John&apos;s Wood · NW8
-          </motion.p>
-
-          <motion.h1
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.05 }}
-            className="max-w-xl font-display text-[2.35rem] leading-[1.1] tracking-tight text-charcoal sm:text-5xl lg:text-[3.25rem]"
+            Call {siteConfig.phoneDisplay}
+          </a>
+          <a
+            href="#collection"
+            className="focus-ring inline-flex items-center justify-center rounded-full border border-pearl/40 bg-transparent px-7 py-3.5 text-sm font-medium text-pearl transition hover:border-gold hover:text-gold sm:text-base"
           >
-            Quiet luxury care on Abbey Road.
-          </motion.h1>
-
-          <motion.div
-            initial={reduce ? false : { scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.85, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            style={{ originX: 0 }}
-            className="mt-6 h-px w-36 bg-gold sm:w-48"
-            aria-hidden
-          />
-
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.2 }}
-            className="mt-6 max-w-md text-base leading-relaxed text-charcoal/75 sm:text-lg"
+            Request collection
+          </a>
+          <a
+            href={siteConfig.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="focus-ring inline-flex items-center justify-center rounded-full border border-pearl/25 bg-transparent px-7 py-3.5 text-sm font-medium text-pearl/90 transition hover:border-gold hover:text-gold sm:text-base"
           >
-            Shirts, household, bridal, leather and same-day care — a
-            neighbourhood dry cleaners trusted on Abbey Road for years. Collection
-            on request across St John&apos;s Wood.
-          </motion.p>
+            Directions
+          </a>
+        </motion.div>
 
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.3 }}
-            className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
-          >
-            <a
-              href={siteConfig.phoneHref}
-              className="focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-charcoal px-6 py-3.5 text-sm font-medium text-pearl transition hover:bg-charcoal-deep"
-            >
-              Call {siteConfig.phoneDisplay}
-            </a>
-            <a
-              href="#collection"
-              className="focus-ring inline-flex items-center justify-center rounded-full border border-charcoal/20 bg-transparent px-6 py-3.5 text-sm font-medium text-charcoal transition hover:border-gold"
-            >
-              Request collection
-            </a>
-            <a
-              href={siteConfig.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="focus-ring inline-flex items-center justify-center rounded-full px-4 py-3.5 text-sm text-charcoal/70 underline-offset-4 transition hover:text-charcoal hover:underline"
-            >
-              Directions
-            </a>
-          </motion.div>
-        </div>
+        <motion.div
+          className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-pearl/65"
+          initial={reduce ? false : { opacity: 0 }}
+          animate={reduce ? undefined : { opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-charcoal/50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-gold">
+            Google {siteConfig.google.ratingLabel} · {siteConfig.google.reviewCount}
+          </span>
+          <span>Collection on request · St John&apos;s Wood</span>
+        </motion.div>
       </div>
+
+      {/* Scroll cue */}
+      <a
+        href="#services"
+        className="focus-ring absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1.5 text-pearl/45 transition hover:text-gold md:bottom-6"
+        aria-label="Scroll to services"
+      >
+        <span className="text-[10px] uppercase tracking-[0.22em]">Scroll</span>
+        <motion.span
+          aria-hidden
+          animate={reduce ? undefined : { y: [0, 6, 0] }}
+          transition={
+            reduce
+              ? undefined
+              : { duration: 1.6, repeat: Infinity, ease: "easeInOut" }
+          }
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </motion.span>
+      </a>
     </section>
   );
 }
