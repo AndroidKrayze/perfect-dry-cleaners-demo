@@ -1,17 +1,25 @@
+"use client";
+
 import { siteConfig } from "@/lib/site.config";
 import { CollectionForm } from "./CollectionForm";
+import { FadeIn } from "./FadeIn";
 
 export function Visit() {
   return (
     <section id="visit" className="bg-pearl px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-6xl">
-        <p className="text-[11px] uppercase tracking-[0.22em] text-gold">Visit</p>
-        <h2 className="mt-3 font-display text-3xl tracking-tight text-charcoal sm:text-4xl">
-          55 Abbey Road, NW8 0AD
-        </h2>
+        <FadeIn>
+          <p className="text-[11px] uppercase tracking-[0.22em] text-gold">Visit</p>
+          <h2 className="mt-3 font-display text-3xl tracking-tight text-charcoal sm:text-4xl">
+            55 Abbey Road, NW8 0AD
+          </h2>
+          <p className="mt-3 max-w-xl text-charcoal/70">
+            St John&apos;s Wood — easy to find, easier to call ahead.
+          </p>
+        </FadeIn>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
-          <div>
+          <FadeIn>
             <a
               href={siteConfig.phoneHref}
               className="focus-ring block rounded-2xl bg-charcoal p-8 text-pearl transition hover:bg-charcoal-deep"
@@ -22,7 +30,7 @@ export function Visit() {
               <p className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl">
                 {siteConfig.phoneDisplay}
               </p>
-              <p className="mt-3 text-sm text-pearl/70">Primary CTA — tap to dial</p>
+              <p className="mt-3 text-sm text-pearl/70">Tap to dial — we&apos;re happy to help</p>
             </a>
 
             <div className="mt-6 rounded-2xl border border-blush bg-pearl p-6">
@@ -60,9 +68,9 @@ export function Visit() {
             <p className="mt-8 rounded-xl border border-gold/30 bg-blush/25 px-4 py-3 text-sm leading-relaxed text-charcoal/70">
               {siteConfig.domainStatusNote}
             </p>
-          </div>
+          </FadeIn>
 
-          <div className="flex flex-col gap-6">
+          <FadeIn delay={0.08} className="flex flex-col gap-6">
             <div className="overflow-hidden rounded-2xl border border-blush shadow-soft">
               <iframe
                 title="Map — Perfect Dry Cleaners, 55 Abbey Road"
@@ -85,7 +93,7 @@ export function Visit() {
             </div>
 
             <CollectionForm />
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

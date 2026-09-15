@@ -1,10 +1,13 @@
+"use client";
+
 import { siteConfig } from "@/lib/site.config";
+import { FadeIn } from "./FadeIn";
 
 export function Story() {
   return (
-    <section id="story" className="bg-blush/40 px-4 py-16 sm:px-6 sm:py-20">
+    <section id="story" className="bg-blush/40 px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-12 lg:items-center">
-        <div className="lg:col-span-7">
+        <FadeIn className="lg:col-span-7">
           <p className="text-[11px] uppercase tracking-[0.22em] text-gold">
             Neighbourhood
           </p>
@@ -12,22 +15,25 @@ export function Story() {
             On Abbey Road, for St John&apos;s Wood.
           </h2>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-charcoal/75">
-            Perfect Dry Cleaners is a long-standing neighbourhood dry cleaners
-            on Abbey Road — shirts, household, bridal and leather care for
-            locals and professionals across NW8. Guests often mention friendly
-            staff and owners who make nothing feel like too much trouble.
+            Perfect Dry Cleaners has been part of Abbey Road for years —
+            the place locals trust with shirts for Monday, curtains for the
+            season, and the wedding dress that needs to arrive impeccable.
+            Guests talk about friendly owners, stain work that actually
+            lands, and a counter where nothing feels like too much trouble.
           </p>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal/75">
-            Owner {siteConfig.ownerDisplayName} welcomes you at the counter.
-            Call to enquire — we&apos;ll look after the rest.
+            Owner {siteConfig.ownerDisplayName} welcomes you in. Call ahead for
+            same-day, bridal, leather or a collection — we&apos;ll look after
+            the rest.
           </p>
           <p className="mt-6 text-sm text-charcoal/55">{siteConfig.collectionNote}</p>
-        </div>
-        <div className="lg:col-span-5">
+        </FadeIn>
+
+        <FadeIn className="lg:col-span-5" delay={0.1}>
           <div className="rounded-2xl border border-blush bg-pearl p-8 shadow-soft">
             <p className="font-display text-2xl leading-snug text-charcoal">
-              Soft pearl counter light. Warm charcoal shopfront. Quiet Abbey
-              Road care.
+              Soft pearl light at the counter. Warm wood on the shopfront.
+              Quiet Abbey Road care.
             </p>
             <div className="mt-6 hairline-gold" />
             <dl className="mt-6 space-y-3 text-sm">
@@ -40,16 +46,25 @@ export function Story() {
                 <dd className="text-right text-charcoal">St John&apos;s Wood · NW8</dd>
               </div>
               <div className="flex justify-between gap-4">
-                <dt className="text-charcoal/55">Primary</dt>
+                <dt className="text-charcoal/55">Google</dt>
+                <dd className="text-right text-charcoal">
+                  {siteConfig.google.ratingLabel} · {siteConfig.google.reviewCount} reviews
+                </dd>
+              </div>
+              <div className="flex justify-between gap-4">
+                <dt className="text-charcoal/55">Call</dt>
                 <dd className="text-right">
-                  <a href={siteConfig.phoneHref} className="focus-ring text-charcoal underline-offset-2 hover:underline">
+                  <a
+                    href={siteConfig.phoneHref}
+                    className="focus-ring text-charcoal underline-offset-2 hover:underline"
+                  >
                     {siteConfig.phoneDisplay}
                   </a>
                 </dd>
               </div>
             </dl>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site.config";
 
 const links = [
   { href: "#services", label: "Services" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#reviews", label: "Reviews" },
   { href: "#visit", label: "Visit" },
 ];
@@ -24,7 +25,7 @@ export function Nav() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
           {links.map((l) => (
             <a
               key={l.href}

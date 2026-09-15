@@ -15,6 +15,18 @@ export function JsonLd() {
       postalCode: siteConfig.address.postcode,
       addressCountry: "GB",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 51.5371038,
+      longitude: -0.1836234,
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: siteConfig.google.rating,
+      reviewCount: siteConfig.google.reviewCount,
+      bestRating: 5,
+      worstRating: 1,
+    },
     areaServed: siteConfig.areaServed.map((a) => ({
       "@type": "Place",
       name: a,
@@ -26,6 +38,7 @@ export function JsonLd() {
       closes: h.closes,
     })),
     url: "https://androidkrayze.github.io/perfect-dry-cleaners-demo/",
+    image: "https://androidkrayze.github.io/perfect-dry-cleaners-demo/assets/hero.jpg",
   };
 
   return (

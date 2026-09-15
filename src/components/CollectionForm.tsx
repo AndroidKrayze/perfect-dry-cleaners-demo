@@ -18,7 +18,6 @@ export function CollectionForm() {
     const body = encodeURIComponent(
       `Name: ${name}\nPhone: ${phone}\nNotes: ${notes}\n\nPlease call back to arrange collection for 55 Abbey Road / NW8.`
     );
-    // Email unknown — open mail client with subject/body as intent placeholder
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
     setSent(true);
   }
@@ -30,9 +29,12 @@ export function CollectionForm() {
     >
       <h3 className="font-display text-2xl text-charcoal">Request collection</h3>
       <p className="mt-2 text-sm text-charcoal/65">
-        Placeholder only — no live booking API. Prefer{" "}
-        <a href={siteConfig.phoneHref} className="text-charcoal underline-offset-2 hover:underline">
-          calling {siteConfig.phoneDisplay}
+        Prefer a quick chat?{" "}
+        <a
+          href={siteConfig.phoneHref}
+          className="text-charcoal underline-offset-2 hover:underline"
+        >
+          Call {siteConfig.phoneDisplay}
         </a>
         . {siteConfig.collectionNote}
       </p>
@@ -40,7 +42,10 @@ export function CollectionForm() {
       {sent ? (
         <p className="mt-6 rounded-xl bg-pearl px-4 py-3 text-sm text-charcoal">
           Thanks — if your mail client opened, send the note. Or call us now on{" "}
-          <a href={siteConfig.phoneHref} className="font-medium underline-offset-2 hover:underline">
+          <a
+            href={siteConfig.phoneHref}
+            className="font-medium underline-offset-2 hover:underline"
+          >
             {siteConfig.phoneDisplay}
           </a>
           .

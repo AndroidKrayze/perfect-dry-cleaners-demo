@@ -1,47 +1,82 @@
-const panels = [
-  { tone: "bg-charcoal text-pearl", label: "Warm charcoal", sub: "Shopfront quiet" },
-  { tone: "bg-pearl text-charcoal border border-blush", label: "Soft pearl", sub: "Counter light" },
-  { tone: "bg-blush text-charcoal", label: "Blush stone", sub: "Amenity calm" },
-  { tone: "bg-charcoal-deep text-pearl", label: "Muted gold", sub: "Hairline detail", gold: true },
-];
+"use client";
+
+import { FadeIn } from "./FadeIn";
+import { siteConfig } from "@/lib/site.config";
+import { withBase } from "@/lib/paths";
 
 export function Gallery() {
-  return (
-    <section id="gallery" className="bg-pearl px-4 py-16 sm:px-6 sm:py-20">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.22em] text-gold">
-              Atmosphere
-            </p>
-            <h2 className="mt-3 font-display text-3xl tracking-tight text-charcoal sm:text-4xl">
-              Colour, not stock photos.
-            </h2>
-          </div>
-          <p className="max-w-sm text-sm text-charcoal/60">
-            Real shop photos will replace these brand panels. See{" "}
-            <code className="text-xs text-gold">/assets/SOURCES.md</code> —
-            Abbey Road listing only.
-          </p>
-        </div>
+  const [heroShot, counter, interior, street, frontage, detail] =
+    siteConfig.gallery;
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {panels.map((p) => (
-            <div
-              key={p.label}
-              className={`relative flex min-h-[180px] flex-col justify-end rounded-2xl p-5 ${p.tone}`}
-            >
-              {p.gold && (
-                <div className="absolute left-5 top-5 h-px w-12 bg-gold" aria-hidden />
-              )}
-              <p className="font-display text-lg">{p.label}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.16em] opacity-70">
-                {p.sub}
-              </p>
-            </div>
-          ))}
+  return (
+    <section id="gallery" className="bg-pearl px-4 py-16 sm:px-6 sm:py-24">
+      <div className="mx-auto max-w-6xl">
+        <FadeIn>
+          <p className="text-[11px] uppercase tracking-[0.22em] text-gold">
+            Gallery
+          </p>
+          <h2 className="mt-3 max-w-2xl font-display text-3xl tracking-tight text-charcoal sm:text-4xl">
+            Inside &amp; around Abbey Road
+          </h2>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal/70">
+            The shopfront at 55 Abbey Road — and the counter where St John&apos;s
+            Wood drops off for the week.
+          </p>
+        </FadeIn>
+
+        <div className="mt-10 grid gap-4 md:grid-cols-12 md:gap-5">
+          <FadeIn className="md:col-span-7" delay={0.04}>
+            <Shot shot={heroShot} aspect="aspect-[4/3] sm:aspect-[16/11]" />
+          </FadeIn>
+          <FadeIn className="md:col-span-5" delay={0.1}>
+            <Shot shot={counter} aspect="aspect-[4/3] md:h-full md:aspect-auto" fill />
+          </FadeIn>
+
+          <FadeIn className="md:col-span-5" delay={0.06}>
+            <Shot shot={interior} aspect="aspect-[4/3]" />
+          </FadeIn>
+          <FadeIn className="md:col-span-7" delay={0.12}>
+            <Shot shot={street} aspect="aspect-[16/10]" />
+          </FadeIn>
+
+          <FadeIn className="md:col-span-6" delay={0.08}>
+            <Shot shot={frontage} aspect="aspect-[4/3]" />
+          </FadeIn>
+          <FadeIn className="md:col-span-6" delay={0.14}>
+            <Shot shot={detail} aspect="aspect-[4/3]" />
+          </FadeIn>
         </div>
       </div>
     </section>
+  );
+}
+
+function Shot({
+  shot,
+  aspect,
+  fill,
+}: {
+  shot: (typeof siteConfig.gallery)[number];
+  aspect: string;
+  fill?: boolean;
+}) {
+  return (
+    <figure
+      className={`group relative overflow-hidden rounded-2xl bg-blush/40 shadow-soft ${
+        fill ? "h-full min-h-[220px]" : ""
+      }`}
+    >
+      <img
+        src={withBase(shot.src)}
+        alt={shot.alt}
+        className={`${aspect} w-full object-cover transition duration-700 group-hover:scale-[1.02] ${
+          fill ? "md:absolute md:inset-0 md:h-full md:w-full md:aspect-auto" : ""
+        }`}
+        loading="lazy"
+      />
+      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/75 to-transparent px-5 pb-4 pt-14">
+        <p className="text-sm font-medium text-pearl">{shot.caption}</p>
+      </figcaption>
+    </figure>
   );
 }
