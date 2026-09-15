@@ -39,19 +39,23 @@ export const siteConfig = {
   collectionNote:
     "Collection & delivery available on request for St John's Wood and nearby NW8 — call to arrange.",
   hoursNote: "Hours may vary — call us to confirm before you visit.",
+  // HOURS CONFLICT: Google Maps pack (2026-09-15) lists Mon–Sat 8AM–6PM, Sun closed.
+  // Earlier directories listed Mon–Fri 8–7 / Sat 8–6. Using Google hours as demo default;
+  // keep soft confirm note above. Verify with the shop before printing materials.
   hours: [
-    { days: "Monday – Friday", open: "08:00", close: "19:00", closed: false },
-    { days: "Saturday", open: "08:00", close: "18:00", closed: false },
+    { days: "Monday – Saturday", open: "08:00", close: "18:00", closed: false },
     { days: "Sunday", open: "", close: "", closed: true },
   ],
   openingHoursSpecification: [
     {
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "19:00",
-    },
-    {
-      dayOfWeek: "Saturday",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
       opens: "08:00",
       closes: "18:00",
     },
@@ -136,27 +140,6 @@ export const siteConfig = {
   reviews: [
     {
       quote:
-        "Never in a million years did I anticipate writing a review of a dry cleaners! What a wonderful experience. The staff are friendly, helpful, kind and considerate. I went in with my 3 children. Each of them were made to feel special. Plus my cleaning and alterations were excellently done.",
-      attribution: "Hannah Bateman",
-      source: "Google",
-      stars: 5,
-    },
-    {
-      quote:
-        "Absolutely impeccable service. Offered amazing advice on my vintage clothing items and went above and beyond to help — even though I arrived shortly before close. Felt like a very valued customer.",
-      attribution: "Laura Jacobs",
-      source: "Google",
-      stars: 5,
-    },
-    {
-      quote:
-        "Brilliant service — they collected my wife's wedding dress for cleaning and what really impressed me was the way it was packaged when it was delivered back. Really neat.",
-      attribution: "Grant Whiting",
-      source: "Google",
-      stars: 5,
-    },
-    {
-      quote:
         "Took three of my shoes here to have them re-heeled and soled. Now they're like new! They even cleaned and polished my leather boots. Really appreciated the extra mile. Will return.",
       attribution: "May Hoang",
       source: "Google",
@@ -164,19 +147,35 @@ export const siteConfig = {
     },
     {
       quote:
-        "The staff and the owners are very friendly and helpful. I've been using this service for many years. Nothing is ever too much trouble, and they're great at removing stains — clean, tidy, and recommended without any doubt.",
-      attribution: "Noor F.",
+        "As a customer I have been going to this Dry Cleaners for many years, even since I moved to a different part of London, I still go back to perfect dry cleaners. Their customer service is excellent, and, most importantly, the quality of their work.",
+      attribution: "A K A",
       source: "Google",
       stars: 5,
     },
     {
       quote:
-        "As a customer I have been going to this dry cleaners for many years. Even since I moved to a different part of London, I still go back. Their customer service is excellent — and most importantly, the quality of their work.",
-      attribution: "A K A",
+        "Very professional and reasonable price, I have been using their services since 2009, I have not once been disappointed. I really do recommend them. Great job guys, keep it up!",
+      attribution: "Sofia Peterson",
+      source: "Google",
+      stars: 5,
+    },
+    {
+      quote:
+        "I have been a customer for more than 5 years. Ari and his team are amazing. They are focused on the customer and have always made sure my items are handled with care. I highly recommend these folks.",
+      attribution: "Sean Sears",
+      source: "Google",
+      stars: 5,
+    },
+    {
+      quote:
+        "The staff and the owners are very friendly and helpful, I have been using this service for many years. Nothing ever too much trouble, and they're great at removing stains — great value for money. Clean and tidy.",
+      attribution: "Noor food Yorkshire",
       source: "Google",
       stars: 5,
     },
   ],
+  // Gallery: hero + shop-1..5 + interior-1/2 + photo-6 (finished garment).
+  // Skipped photo-3/4/5/7 — customer complaint / damaged-goods close-ups, not pitch-fit.
   gallery: [
     {
       src: "/assets/hero.jpg",
@@ -187,6 +186,16 @@ export const siteConfig = {
       src: "/assets/shop-1.jpg",
       alt: "Service counter and team at Perfect Dry Cleaners",
       caption: "At the counter",
+    },
+    {
+      src: "/assets/interior-1.jpg",
+      alt: "Garment rails and service counter inside Perfect Dry Cleaners",
+      caption: "Ready for collection",
+    },
+    {
+      src: "/assets/interior-2.jpg",
+      alt: "Team at the counter inside Perfect Dry Cleaners on Abbey Road",
+      caption: "The team",
     },
     {
       src: "/assets/shop-2.jpg",
@@ -207,6 +216,11 @@ export const siteConfig = {
       src: "/assets/shop-5.jpg",
       alt: "Close view of Perfect Dry Cleaners shopfront and window services",
       caption: "Shopfront detail",
+    },
+    {
+      src: "/assets/photo-6.jpg",
+      alt: "Freshly cleaned blouse with Perfect Dry Cleaners care tag",
+      caption: "Finished with care",
     },
   ],
   priceLine: "Call for today's prices — quality care, Abbey Road standards.",

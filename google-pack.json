@@ -1,0 +1,72 @@
+{
+  "business": {
+    "name": "Perfect Dry Cleaners",
+    "address": "55 Abbey Rd., London NW8 0AD, United Kingdom",
+    "phone": "+44 20 7624 3420",
+    "category": "Dry cleaner",
+    "google_maps_url": "https://www.google.com/maps/place/Perfect+Dry+Cleaners/@51.5370754,-0.183647,17z/data=!3m1!4b1!4m6!3m5!1s0x48761a9f410acd83:0xc9e5939ea081c4b4!8m2!3d51.5370754!4d-0.183647!16s%2Fg%2F1tj5q6rn"
+  },
+  "rating": 4.1,
+  "review_count": 56,
+  "hours": {
+    "Tuesday": "8 AM–6 PM",
+    "Wednesday": "8 AM–6 PM",
+    "Thursday": "8 AM–6 PM",
+    "Friday": "8 AM–6 PM",
+    "Saturday": "8 AM–6 PM",
+    "Sunday": "Closed",
+    "Monday": "8 AM–6 PM"
+  },
+  "reviews": [
+    {
+      "author": "May Hoang",
+      "quote": "Took three of my shoes here to have them re-heeled and soled. Now they're like new! They even cleaned and polished my leather boots. Really appreciated the extra mile. Will return."
+    },
+    {
+      "author": "A K A",
+      "quote": "As a customer I have been going to this Dry Cleaners for many years, even since I moved to a different part of London, I still go back to perfect dry cleaners. Their customer service is excellent, and, most importantly, the quality of their …",
+      "excerpt": true
+    },
+    {
+      "author": "Kristina Vasiliauskaite",
+      "quote": "Took three items there, paid £25, all have marks and left dirty.\n\nAbbey dry cleaners are 10x better, cleaned the same blouses before so not buying into not being able to clean. That’s what you get when you decide to try cheaper."
+    },
+    {
+      "author": "Sofia Peterson",
+      "quote": "Very professional and reasonableprice, I have been using their services since 2009, I have not once been disappointed. I really do recommend them. Great job guys, keep it up!"
+    },
+    {
+      "author": "Laura Barbillon",
+      "quote": "Staff very rude mostly the woman.\nVery expensive for what it is worth!\nHave a suede jacket and didn’t see any improvement and they still charged me full price"
+    },
+    {
+      "author": "Jonathan Aaron",
+      "quote": "RUDE & RIP OFF - stay away from this company! they damaged my suede shoes and were extremely rude when confronted about it. They advertise themselves as Suede experts but have no idea what they are doing and the female staff member is EXTREMELY rude - STAY WELL AWAY!"
+    },
+    {
+      "author": "Sean Sears",
+      "quote": "I have been a customer for more than 5 years. Ari and his team are amazing. They are focused on the cutsomer and has always made sure my items are handled with care. I highly recommend these folks."
+    },
+    {
+      "author": "Noor food Yorkshire ltd",
+      "quote": "The staff and the owners are very friendly and helpful, l have been using this service for many year's. Nothing ever to much trouble, and they great at removing stains, great value for money. Clean and tidy. I have seen many celebrities and …",
+      "excerpt": true
+    }
+  ],
+  "photos": [
+    {"file": "public/assets/hero.jpg", "source": "Google Maps", "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnSDx8UFc-VAFbiFIBoC4PQCzXUfuMLOofvkdHVtvgLotwMFAT-CPxBrtdi3bwhF1hmghxypZds0jAQ0Qft2dW0o2rtIifbIw-NDu3jpkgipDW9s8Lh8MEabOH8i4Q8G0zimDpa=s0"},
+    {"file": "public/assets/interior-1.jpg", "source": "Google Maps", "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmISyOuPVYoY7eTc9KtFGq51UslD_w0NXLb0e2SPwYy2S2dV7ctHbqmLiLlpge6DA7n8lfB7zjAe53JBHOGsycbxP7eX6HVgAE80JvO0Tfe-c3BKRmU_FaAYp-ksBtJSDapR9g=s451-k-no"},
+    {"file": "public/assets/photo-3.jpg", "source": "Google Maps", "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnp8PF5IL0H2rU_ZNuv3bKy1RTPF2TdYgMtpm5gmTnL36U2wTBMeR0jidcAG4AEIPEjBK5ShOCfS1p8LBGI26hOORHmZKgsBJX6t1jPcTICBevtIae9PkJp4tELMxr-h37_lK8=s508-k-no"},
+    {"file": "public/assets/photo-4.jpg", "source": "Google Maps", "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlWf_yL-1teNKpKT1mqPdA0f-uFvI_j5PxfXpIC2XFYa0u4GAOFHG56bVeTmNupnIxMCljIzWMCrHg10CqCKULSWiJTpfYjoKFkmSdts0ZaMxl9ElsXS16VKnesOT4EDIGfRqjF=s387-k-no"},
+    {"file": "public/assets/photo-5.jpg", "source": "Google Maps", "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn6vZyCGmtaXQB7BZGnk-wEqaNk24XAWPzf6hKmnNrjyVryPhB9qZ4aYcacNeMpoPz_KqKJkZcZzBYpoGa0RSlfMwWujm2rAsZgE-FdkE8_d7aGKZA2bnJvaHruNZXFrgjCkqCSgg=s677-k-no"},
+    {"file": "public/assets/photo-6.jpg", "source": "Google Maps", "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnoKQVHOFUM-WcQ-IqWeQNCd7GJgYJ4UAYCnMVjxfyRjAo01lyM4SPyEAyId4OKFK6WJr5qEK2ns_f0wG_v3v3jyghiuzuWSE7yGom7KltPKkRKkr7sG7Uuay23ZKBhG45Ym1lD=s406-k-no"},
+    {"file": "public/assets/photo-7.jpg", "source": "Google Maps", "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkrfc12IryBFA3Pgs4D_7i5EUC9tRTf46IVzK2nvQlb92g8tYwzO5FM92-YgtxATWLlgrwL7ZsYAZrCugcWYqLsgqcjzLFULUjgv-LhTr_qJ7WnPNG9tVJSGoGaRhjAttqHpBEwLA=s387-k-no"},
+    {"file": "public/assets/interior-2.jpg", "source": "Google Maps", "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlnujJ_VmgCb6xIjSQb9HTrN_wNYP6GrZBv8vsDrmQi4yz_mQU39tr9WdWLbtbPStal2IbBFX9ZdUGCnT73WmS3ZSU3wH_mG4AJKZjJMTp4BTgPhNKyy56x4DjC3CIAGYZFB1ca7g=s387-k-no"}
+  ],
+  "source": {
+    "platform": "Google Maps",
+    "retrieved": "2026-09-15",
+    "listing_identity": "Perfect Dry Cleaners at 55 Abbey Rd., London NW8 0AD; +44 20 7624 3420",
+    "photos_tab_count_shown": 9
+  }
+}

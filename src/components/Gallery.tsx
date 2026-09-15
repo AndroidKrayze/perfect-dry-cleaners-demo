@@ -4,9 +4,33 @@ import { FadeIn } from "./FadeIn";
 import { siteConfig } from "@/lib/site.config";
 import { withBase } from "@/lib/paths";
 
+/** Mosaic spans for a 12-col grid — tuned for 9 shots (hero + shop + interiors + finish). */
+const spans = [
+  "md:col-span-7",
+  "md:col-span-5",
+  "md:col-span-5",
+  "md:col-span-7",
+  "md:col-span-4",
+  "md:col-span-4",
+  "md:col-span-4",
+  "md:col-span-6",
+  "md:col-span-6",
+] as const;
+
+const aspects = [
+  "aspect-[4/3] sm:aspect-[16/11]",
+  "aspect-[4/3] md:h-full md:aspect-auto",
+  "aspect-[4/3]",
+  "aspect-[16/10]",
+  "aspect-[4/3]",
+  "aspect-[4/3]",
+  "aspect-[4/3]",
+  "aspect-[4/3]",
+  "aspect-[3/4] sm:aspect-[4/3]",
+] as const;
+
 export function Gallery() {
-  const [heroShot, counter, interior, street, frontage, detail] =
-    siteConfig.gallery;
+  const shots = siteConfig.gallery;
 
   return (
     <section id="gallery" className="bg-pearl px-4 py-16 sm:px-6 sm:py-24">
@@ -19,32 +43,28 @@ export function Gallery() {
             Inside &amp; around Abbey Road
           </h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal/70">
-            The shopfront at 55 Abbey Road — and the counter where St John&apos;s
-            Wood drops off for the week.
+            The shopfront at 55 Abbey Road — the counter, the rails, and pieces
+            finished for collection.
           </p>
         </FadeIn>
 
         <div className="mt-10 grid gap-4 md:grid-cols-12 md:gap-5">
-          <FadeIn className="md:col-span-7" delay={0.04}>
-            <Shot shot={heroShot} aspect="aspect-[4/3] sm:aspect-[16/11]" />
-          </FadeIn>
-          <FadeIn className="md:col-span-5" delay={0.1}>
-            <Shot shot={counter} aspect="aspect-[4/3] md:h-full md:aspect-auto" fill />
-          </FadeIn>
-
-          <FadeIn className="md:col-span-5" delay={0.06}>
-            <Shot shot={interior} aspect="aspect-[4/3]" />
-          </FadeIn>
-          <FadeIn className="md:col-span-7" delay={0.12}>
-            <Shot shot={street} aspect="aspect-[16/10]" />
-          </FadeIn>
-
-          <FadeIn className="md:col-span-6" delay={0.08}>
-            <Shot shot={frontage} aspect="aspect-[4/3]" />
-          </FadeIn>
-          <FadeIn className="md:col-span-6" delay={0.14}>
-            <Shot shot={detail} aspect="aspect-[4/3]" />
-          </FadeIn>
+          {shots.map((shot, i) => {
+            const fill = i === 1;
+            return (
+              <FadeIn
+                key={shot.src}
+                className={spans[i] ?? "md:col-span-6"}
+                delay={Math.min(0.04 + i * 0.03, 0.28)}
+              >
+                <Shot
+                  shot={shot}
+                  aspect={aspects[i] ?? "aspect-[4/3]"}
+                  fill={fill}
+                />
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>
